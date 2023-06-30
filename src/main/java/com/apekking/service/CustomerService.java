@@ -2,6 +2,7 @@ package com.apekking.service;
 
 import com.apekking.entity.Customer;
 import com.apekking.repository.CustomerRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
+@Slf4j
 public class CustomerServices {
 
     @Autowired
@@ -19,6 +21,7 @@ public class CustomerServices {
 
     public ResponseEntity<List<Customer>> getAllCustomers() {
         List<Customer> allCustomers = customerRepository.findAll();
+        log.info("Successfully get list customer");
         return ResponseEntity.ok(allCustomers);
     }
 
