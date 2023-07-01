@@ -1,4 +1,4 @@
-# Ordering System Documentacion
+# Ordering System Documentation
 
 ## Project Description
 
@@ -87,6 +87,91 @@ java -jar target/ordering-system.jar
 - Start testing and using the various endpoints provided by the application, such as creating new orders, managing products and customers, and so on.
 
 Now you have successfully installed and run the `Ordering System` application in your development environment. Have fun using it!
+
+
+
+## APIs Documentation
+
+### Customer
+
+- **GET** `http://localhost:8282/customers` - > Get list customers
+- **GET** `http://localhost:8282/customers/{customerId}` - > Get detail customer
+- **POST** `http://localhost:8282/customers` - > add new customer
+  
+  - Request body :
+ 
+    ```json
+    {
+      "customerName":"customer_name",
+      "address":"customer_address",
+      "phone": "customer_phone_number"
+    }
+    ```
+- **PUT** `http://localhost:8282/customers/{customerId}` - > Edit customer
+  
+  - Request body :
+ 
+    ```json
+    {
+      "customerName":"customer_name",
+      "address":"customer_address",
+      "phone": "customer_phone_number"
+    }
+    ```
+
+
+### Product
+
+- **GET** `http://localhost:8282/products` - > Get list products
+- **GET** `http://localhost:8282/products/{productId}` - > Get list product
+- **POST** `http://localhost:8282/products` - > Add new product
+
+  - Request body :
+    
+    ```json  
+      {
+        "productPrice":"product_price",
+        "productDescription":"product_description",
+        "stock":"product_stock"
+      }
+    ```
+    
+- **PUT** `http://localhost:8282/products/{productId}` - > Edit product
+
+  - Request body :
+    
+    ```json  
+      {
+        "productPrice":"product_price",
+        "productDescription":"product_description",
+        "stock":"product_stock"
+      }
+    ```
+
+
+### Order
+
+- **POST** `http://localhost:8282/order` - > Create order
+  - Request body :
+    
+    ```json  
+      {
+        "customer": {
+          "customerId": "customer_id"
+        },
+        "product": {
+          "productId": "product_id"
+        },
+        "quantity": "order_quantity"
+      }
+    ```
+
+
+
+
+
+
+
 
 
 
