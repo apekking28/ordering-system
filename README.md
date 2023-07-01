@@ -44,7 +44,7 @@ Make sure you have installed the following prerequisites before proceeding:
 
 - `JDK 17`: Download and install JDK 17 according to your operating system.
 - `Maven`: Download and install Maven according to your operating system.
-- `JDBC-compatible relational database such as`  : MySQL, PostgreSQL, or Oracle. Make sure the database is installed and running.
+- `JDBC-compatible relational database such as`  : `MySQL`, `PostgreSQL`, or `Oracle`. Make sure the database is installed and running.
 
 ### Installation Steps
 
