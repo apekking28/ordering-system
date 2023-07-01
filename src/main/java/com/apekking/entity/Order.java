@@ -14,6 +14,7 @@ import java.util.Date;
 @Data
 public class Order {
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String orderId;
     @ManyToOne
     @JoinColumn(name = "customer_id")
