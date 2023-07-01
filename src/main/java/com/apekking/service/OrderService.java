@@ -6,6 +6,7 @@ import com.apekking.entity.Product;
 import com.apekking.repository.CustomerRepository;
 import com.apekking.repository.OrderRepository;
 import com.apekking.repository.ProductRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -15,16 +16,17 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
+@RequiredArgsConstructor
 public class OrderService {
 
-    @Autowired
-    private OrderRepository orderRepository;
 
-    @Autowired
-    private CustomerRepository customerRepository;
+    private final OrderRepository orderRepository;
 
-    @Autowired
-    private ProductRepository productRepository;
+
+    private final CustomerRepository customerRepository;
+
+
+    private final ProductRepository productRepository;
 
     public ResponseEntity<Order> createOrder(Order order) {
         UUID uuid = UUID.randomUUID();
@@ -32,11 +34,11 @@ public class OrderService {
         order.setOrderId(uuidString);
         order.setOrderDate();
 
-        // Mengambil objek Customer berdasarkan customerId
+        // Retrieve a Customer object based on customerId
         Optional<Customer> optionalCustomer = customerRepository.findById(order.getCustomer().getCustomerId());
         if (optionalCustomer.isPresent()) {
             Customer customer = optionalCustomer.get();
-            // Menghubungkan objek Customer dengan objek Order
+            // Connects the Customer object with the Order object
             order.setCustomer(customer);
         }
 

@@ -1,6 +1,8 @@
 package com.apekking.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,6 +15,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Customer {
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String customerId;
     private String customerName;
     private String address;
@@ -21,9 +24,4 @@ public class Customer {
 //    @OneToMany(mappedBy = "customer")
 //    private List<Order> orderList;
 
-    // Add this constructor
-
-    public Customer(String customerId) {
-        this.customerId = customerId;
-    }
 }

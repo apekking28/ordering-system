@@ -1,8 +1,6 @@
 package com.apekking.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,8 +13,9 @@ import java.util.List;
 @AllArgsConstructor
 public class Product {
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String productId;
-
+    private String orderId;
     private String productPrice;
     private String productDescription;
     private int stock;
@@ -24,8 +23,4 @@ public class Product {
 //    @OneToMany(mappedBy = "product")
 //    private List<Order> orderList;
 
-    // Add this constructor
-    public Product(String productId) {
-        this.productId = productId;
-    }
 }
