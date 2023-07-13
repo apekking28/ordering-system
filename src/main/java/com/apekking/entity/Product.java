@@ -20,7 +20,4 @@ public class Product {
     private String productDescription;
     private int stock;
 
-//    @OneToMany(mappedBy = "product")
-//    private List<Order> orderList;
-
 }

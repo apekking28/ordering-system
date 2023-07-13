@@ -30,8 +30,10 @@ public class OrderService {
 
 
     private final ProductRepository productRepository;
+
     @Transactional
     public ResponseEntity<Order> createOrder(Order order) throws Exception {
+        System.out.println(order);
         try {
             Optional<Customer> optionalCustomer = customerRepository.findById(order.getCustomer().getCustomerId());
             if (optionalCustomer.isPresent()) {
